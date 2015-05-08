@@ -35,11 +35,13 @@ namespace KuasWebApp.Controllers
             return CourseService.GetAllCourses();
         }
         [HttpGet]
+        [ActionName("ByName")]
         public Course GetCourseByName(string name)
         {
             return CourseService.GetCourseByName(name);
         }
         [HttpGet]
+        [ActionName("ById")]
         public Course GetCourseById(string id)
         {
             return CourseService.GetCourseById(id);
