@@ -12,10 +12,12 @@ namespace KuasWebApp.Controllers
     {
 
         public ICourseService CourseService { get; set; }
-        
+
+
         [HttpPost]
         public Course AddCourse(Course course)
         {
+            CheckCourseIsNotNullThrowException(course);
             try
             {
                 CourseService.AddCourse(course);
@@ -32,13 +34,25 @@ namespace KuasWebApp.Controllers
         {
             return CourseService.GetAllCourses();
         }
-       
+        [HttpGet]
+        public Course GetCourseByName(string name)
+        {
+            return CourseService.GetCourseByName(name);
+        }
         [HttpGet]
         public Course GetCourseById(string id)
         {
             return CourseService.GetCourseById(id);
         }
-        
+        //
+        private void CheckCourseIsNotNullThrowException(Course course)
+        {
+            Course dbCourse = CourseService.GetCourseById(course.ID);
 
+            if (dbCourse != null)
+            {
+                throw new HttpResponseException(HttpStatusCode.Conflict);
+            }
+        }
     }
 }

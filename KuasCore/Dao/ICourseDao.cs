@@ -18,5 +18,7 @@ namespace KuasCore.Dao
 
        Course GetCourseById(string id);
 
+
+       Course GetCourseByName(string name);
     }
 }

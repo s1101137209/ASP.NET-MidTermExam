@@ -40,6 +40,11 @@ namespace KuasCore.Services.Impl
             return  CourseDao.GetCourseById(id);
         }
 
+        public Course GetCourseByName(string name)
+        {
+            return CourseDao.GetCourseByName(name);
+        }
+
     }
 
 }

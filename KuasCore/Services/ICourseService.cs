@@ -54,7 +54,6 @@ namespace KuasCore.Services
         /// </returns>
         Course GetCourseById(string id);
 
-
-       
+        Course GetCourseByName(string name);
     }
 }
